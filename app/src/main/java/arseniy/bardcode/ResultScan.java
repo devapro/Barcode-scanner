@@ -2,7 +2,9 @@ package arseniy.bardcode;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,6 +17,7 @@ import arseniy.bardcode.util.CFlag;
  */
 public class ResultScan extends Activity {
     private  String cod, format;
+    private int index;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +27,7 @@ public class ResultScan extends Activity {
         cod = getIntent().getStringExtra("cod");
         format = getIntent().getStringExtra("format");
         //заносим код в базу данных
-        ScanCodeModel.addCode(cod, format, this);
+        index = ScanCodeModel.addCode(cod, format, this);
 
         TextView result_code = (TextView) findViewById(R.id.result_code);
         result_code.setText(cod);
@@ -38,5 +41,18 @@ public class ResultScan extends Activity {
 
         ImageView imFlag = (ImageView) findViewById(R.id.flagImg);
         imFlag.setImageResource(cflag.prefix);
+
+        ImageView imAdd = (ImageView) findViewById(R.id.add_button);
+        imAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                update();
+            }
+        });
+    }
+
+    public void update(){
+        EditText nameField = (EditText) findViewById(R.id.code_name);
+        ScanCodeModel.updateCode(nameField.getText().toString(), index, this );
     }
 }

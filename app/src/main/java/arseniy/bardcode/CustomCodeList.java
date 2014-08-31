@@ -30,6 +30,7 @@ public class CustomCodeList  extends ArrayAdapter<String> {
         View rowView = inflater.inflate(R.layout.custom_code_list, null, true);
         TextView txtTitle = (TextView) rowView.findViewById(R.id.code);
         txtTitle.setText(this.codeId[position]);
+        //кнопка удаления зписи
         ImageButton deleteButton = (ImageButton) rowView.findViewById(R.id.button_delete);
         deleteButton.setOnClickListener(new View.OnClickListener()
         {

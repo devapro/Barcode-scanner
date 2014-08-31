@@ -1,37 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="3dp">
-<TextView
-    android:id="@+id/result_code"
-    android:text="test"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:textColor="#00a0ce"
-    android:textSize="24sp"
-    android:gravity="center|center_horizontal"/>
-<RelativeLayout
-    android:id="@+id/cl"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:layout_alignBaseline="@id/result_code">
-    <TextView
-        android:id="@+id/country_code"
+    <LinearLayout
+        android:id="@+id/ll_header"
+        android:orientation="vertical"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/result_code"
+            android:text="test"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#00a0ce"
+            android:textSize="24sp"
+            android:gravity="center|center_horizontal"/>
+        <RelativeLayout
+            android:id="@+id/cl"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/result_code">
+            <TextView
+                android:id="@+id/country_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:text="test country"/>
+            <ImageView
+                android:id="@+id/flagImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ru"
+                android:layout_alignRight="@+id/country_code"
+                android:layout_alignParentRight="true"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="5dp"
-        android:text="test country"/>
-    <ImageView
-        android:id="@+id/flagImg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ru"
-        android:layout_alignRight="@+id/country_code"
-        android:layout_alignParentRight="true"
-        />
+        android:layout_below="@+id/ll_header">
+        <EditText
+            android:id="@+id/code_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25dp"
+            android:hint="@string/info_hint"/>
+        <ImageView
+            android:id="@+id/add_button"
+            android:layout_alignRight="@+id/code_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/add"
+            android:layout_alignParentRight="true"/>
     </RelativeLayout>
+
+
 </RelativeLayout>

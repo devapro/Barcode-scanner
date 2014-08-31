@@ -3,27 +3,39 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/code"
-        android:text="code code"
+    <LinearLayout
+        android:id="@+id/flag_prev"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:gravity="left|center_vertical"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:minHeight="?android:attr/listPreferredItemHeight"
-        android:textColor="#00a0ce"
-        android:textSize="24sp"
-        android:layout_margin="3dp">
-    </TextView>
+
+        android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/country_flag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ru"
+                android:layout_margin="3dp"
+                android:paddingTop="7dp"/>
+        </LinearLayout>
+        <TextView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/code"
+            android:text="code code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/flag_prev"
+            android:layout_toRightOf="@+id/flag_prev"
+            android:gravity="center|center_horizontal"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:minHeight="?android:attr/listPreferredItemHeight"
+            android:textColor="#00a0ce"
+            android:textSize="24sp"
+            android:layout_margin="3dp">
+        </TextView>
     <ImageButton
         android:id="@+id/button_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/delete"
-        android:layout_gravity="center_vertical"
-        android:gravity="right|center_vertical"
         android:layout_alignParentRight="true"
-        android:layout_margin="3dp"/>
+        android:layout_margin="6dp"/>
 </RelativeLayout>

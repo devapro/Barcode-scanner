@@ -17,4 +17,13 @@
     <string name="success_delete">Запись удалена</string>
     <string name="failure_delete">Ошибка удаления</string>
 
+    <string name="info_hint">Название</string>
+
+    <string name="c_default">Страна не определена</string>
+
+    <string name="c_ru">Россия</string>
+    <string name="c_ua">Украина</string>
+    <string name="c_ch">Китай</string>
+    <string name="c_us">Китай</string>
+
 </resources>

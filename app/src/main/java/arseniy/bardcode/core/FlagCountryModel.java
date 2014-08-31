@@ -14,19 +14,20 @@ public class FlagCountryModel {
 
     public FlagCountryModel(){
         hashmap = new HashMap<Integer, CFlag>();
-        hashmap.put(00,new CFlag("America", R.drawable.us));
-        hashmap.put(59,new CFlag("America", R.drawable.us));
-        hashmap.put(48,new CFlag("Ukrainian", R.drawable.ua));
-        hashmap.put(46,new CFlag("Russia", R.drawable.ru));
+        hashmap.put(00,new CFlag(R.string.c_us, R.drawable.us));
+        hashmap.put(202,new CFlag(R.string.c_us, R.drawable.us));
+        hashmap.put(48,new CFlag(R.string.c_ua, R.drawable.ua));
+        hashmap.put(59,new CFlag(R.string.c_ru, R.drawable.ru));
     }
 
     public CFlag getCountry(Integer cod){
         CFlag result = hashmap.get(cod);
         if(result == null){
-            result = hashmap.get(Math.floor(cod/10));
+            Double c = Math.floor(cod/10);
+            result = hashmap.get(c.intValue());
         }
         if (result != null)
             return result;
-        return new CFlag("default", R.drawable.ru);
+        return new CFlag(R.string.c_default, R.drawable.ru);
     }
 }

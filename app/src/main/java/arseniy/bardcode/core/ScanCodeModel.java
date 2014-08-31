@@ -40,7 +40,7 @@ public class ScanCodeModel {
             int i = 0;
             do {
                 // получаем значения по номерам столбцов и пишем все в лог
-                Log.d("Db", " code = " + c.getString(codelColIndex)
+                Log.d("Db", " code = " + c.getString(nameColIndex)
                 );
                 codes[i] = c.getString(codelColIndex);
                 names[i] = c.getString(nameColIndex);
@@ -67,7 +67,7 @@ public class ScanCodeModel {
         return delCount > 0 ? true : false;
     }
 
-    public static boolean addCode(String cod, String format, Activity activ){
+    public static int addCode(String cod, String format, Activity activ){
         DbHelper dbHelper = new DbHelper(activ);
         // создаем объект для данных
         ContentValues cv = new ContentValues();
@@ -78,8 +78,22 @@ public class ScanCodeModel {
         cv.put("cod", cod);
         cv.put("format", format);
         cv.put("name", "");
-        db.insert(AppConst.TableScanCodeName, null, cv);
+        Long index = db.insert(AppConst.TableScanCodeName, null, cv);
         dbHelper.close();
-        return true;
+        return index.intValue();
+    }
+
+    public static int updateCode(String name, int index, Activity activ){
+        DbHelper dbHelper = new DbHelper(activ);
+        // создаем объект для данных
+        ContentValues cv = new ContentValues();
+        // подключаемся к БД
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        //заносим результата сканирования в бд
+        // подготовим данные для вставки в виде пар: наименование столбца - значение
+        cv.put("name", name);
+        int i = db.update(AppConst.TableScanCodeName, cv, "id=?",  new String[] {Integer.toString(index)});
+        dbHelper.close();
+        return i;
     }
 }
