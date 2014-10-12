@@ -8,7 +8,7 @@ import org.acra.annotation.ReportsCrashes;
 
 @ReportsCrashes(
         formKey = "", // This is required for backward compatibility but not used
-        formUri = "http://testzp.hol.es/android/r.php"
+        formUri = "http://testzp.hol.es/android/r.php" // url for report about crash application
 )
 /**
  * Created by arseniy on 16/08/14.
